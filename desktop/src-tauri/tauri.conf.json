@@ -1,0 +1,81 @@
+{
+  "$schema": "https://schema.tauri.app/config/2",
+  "productName": "Oyen Jaga Postur",
+  "version": "0.1.0",
+  "identifier": "id.oyen.jagapostur",
+  "build": {
+    "frontendDist": "../dist",
+    "beforeDevCommand": {
+      "script": "node scripts/sync-web.mjs",
+      "wait": true
+    },
+    "beforeBuildCommand": "node scripts/sync-web.mjs"
+  },
+  "app": {
+    "withGlobalTauri": true,
+    "macOSPrivateApi": true,
+    "security": {
+      "csp": null
+    },
+    "trayIcon": {
+      "id": "oyen-tray",
+      "iconPath": "icons/128x128.png",
+      "iconAsTemplate": false,
+      "showMenuOnLeftClick": false,
+      "tooltip": "Oyen Jaga Postur"
+    },
+    "windows": [
+      {
+        "label": "main",
+        "title": "Oyen Jaga Postur 🐱",
+        "url": "index.html",
+        "width": 1100,
+        "height": 800,
+        "minWidth": 360,
+        "minHeight": 500,
+        "center": true,
+        "resizable": true,
+        "backgroundThrottling": "disabled"
+      },
+      {
+        "label": "overlay",
+        "title": "Oyen",
+        "url": "overlay.html",
+        "width": 800,
+        "height": 600,
+        "visible": false,
+        "transparent": true,
+        "decorations": false,
+        "alwaysOnTop": true,
+        "skipTaskbar": true,
+        "resizable": false,
+        "shadow": false,
+        "focus": false,
+        "visibleOnAllWorkspaces": true,
+        "backgroundThrottling": "disabled",
+        "acceptFirstMouse": true
+      }
+    ]
+  },
+  "bundle": {
+    "active": true,
+    "targets": [
+      "app",
+      "dmg"
+    ],
+    "category": "Productivity",
+    "shortDescription": "Kucing oranye yang menjaga postur dudukmu",
+    "longDescription": "Oyen memantau postur dudukmu lewat kamera (diproses di perangkat) dan muncul marah di atas semua aplikasi saat kamu membungkuk.",
+    "icon": [
+      "icons/32x32.png",
+      "icons/128x128.png",
+      "icons/128x128@2x.png",
+      "icons/icon.icns",
+      "icons/icon.ico"
+    ],
+    "macOS": {
+      "signingIdentity": "-",
+      "minimumSystemVersion": "12.0"
+    }
+  }
+}

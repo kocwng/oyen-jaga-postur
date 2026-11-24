@@ -1,0 +1,30 @@
+[package]
+name = "oyen-jaga-postur"
+version = "0.1.0"
+description = "Oyen Jaga Postur - kucing oranye penjaga postur duduk"
+edition = "2021"
+
+[lib]
+name = "oyen_lib"
+crate-type = ["staticlib", "cdylib", "rlib"]
+
+[build-dependencies]
+tauri-build = { version = "2", features = [] }
+
+[dependencies]
+tauri = { version = "2", features = ["tray-icon", "image-png", "macos-private-api"] }
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+
+[profile.dev]
+debug = 0
+
+[profile.release]
+lto = false
+codegen-units = 16
+opt-level = "s"
+strip = true
+
+# macOS: atur level & perilaku Space jendela overlay lewat Objective-C (sudah ada di pohon dependensi Tauri)
+[target.'cfg(target_os = "macos")'.dependencies]
+objc2 = "0.6"

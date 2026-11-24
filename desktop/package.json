@@ -1,0 +1,16 @@
+{
+  "name": "oyen-jaga-postur-desktop",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Versi desktop (Tauri 2) dari Oyen Jaga Postur",
+  "scripts": {
+    "sync": "node scripts/sync-web.mjs",
+    "tauri": "tauri",
+    "dev": "tauri dev",
+    "build": "tauri build",
+    "app": "tauri build --debug --bundles app && codesign --force --deep -s - --identifier id.oyen.jagapostur \"src-tauri/target/debug/bundle/macos/Oyen Jaga Postur.app\" && open \"src-tauri/target/debug/bundle/macos/Oyen Jaga Postur.app\""
+  },
+  "devDependencies": {
+    "@tauri-apps/cli": "^2"
+  }
+}

@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Oyen marah 😾</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;800&family=Fredoka:wght@500;700&display=swap">
+  <link rel="stylesheet" href="overlay.css">
+</head>
+<body>
+  <!-- Pop-up Oyen marah di atas semua aplikasi (jendela Tauri "overlay": transparan, tanpa bingkai, selalu di atas) -->
+  <div id="ov" class="ov" hidden aria-hidden="true">
+    <div class="ov-vignette" aria-hidden="true"></div>
+    <div class="ov-stage">
+      <div class="ov-card" role="alertdialog" aria-modal="true" aria-labelledby="ov-title" aria-describedby="ov-text">
+        <h1 id="ov-title" class="ov-title">Oyen marah! 😾</h1>
+        <p id="ov-text" class="ov-text" aria-live="assertive"></p>
+        <button id="ov-btn" class="ov-btn" type="button">Iya iya, aku tegak 😅</button>
+      </div>
+      <div class="ov-oyen">
+        <div id="ov-oyen" class="ov-oyen-inner"></div>
+      </div>
+    </div>
+  </div>
+  <script type="module" src="overlay.js"></script>
+</body>
+</html>
